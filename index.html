@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Invitación</title>
+
+  <style>
+    body {
+  margin: 0;
+  min-height: 100vh; /* mínimo de la pantalla */
+  display: flex;
+  align-items: flex-start; /* empezar desde arriba */
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  color: white;
+  padding: 20px; /* espacio alrededor */
+  background: linear-gradient(135deg, #1d2671, hsl(182, 56%, 49%));
+}
+
+.card {
+  background: rgba(0,0,0,0.4);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  animation: fadeIn 2s;
+  max-width: 600px;
+  width: 100%;
+  overflow-y: auto; /* scroll vertical si se excede */
+
+}
+
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background: #ffdd57;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Hola papus!!!</h1>
+    <video 
+    autoplay 
+    loop 
+    muted 
+    playsinline 
+    width="220"
+    style="display:block; margin:15px auto;"
+    >
+    <source src="img/avatar_sin_fondo.webm" type="video/webm">
+    </video>
+
+
+    <audio id="musica" controls autoplay loop>
+  <source src="musica/It’s Raining Tacos [Reanimated] - Unreal Toonz - Austin Musick (mp3cut.net).mp3" type="audio/mpeg">
+</audio>
+
+    <h1>🎉 Estás invitado 🎉</h1>
+    <p>Un dia especial nos espera</p>
+    <p>📍 Lugar: <a href="https://maps.app.goo.gl/https://maps.app.goo.gl/MLCcC5k1vRpzgES77?g_st=atm" target="_blank">
+   Ver ubicación del cumpleaños
+</a>
+</p>
+    <p>📅 Fecha: 10 de enero</p>
+    <p>📅 horas: 15:00 </p>
+
+    <button onclick="toggleIndicaciones()">
+  📌👣 Indicaciones para llegar
+</button>
+
+<div id="indicaciones" style="display:none; margin-top:15px; text-align:left;">
+
+  <h3>🚌 Transporte público</h3>
+  <p>
+    Tomar minibús <b>línea 377, 883 , 937</b> o <b>Puma Katari incallojeta - Norte</b><br>
+    Bajar en <b>Hansa</b><br>
+  </p>
+
+  <h3>🚕 Taxi</h3>
+  <p>
+    Decir al taxista:<br>
+    “Zona Llojeta el Rosal 2 cuadras antes de la Fabrica Delizia en Hansa ”
+  </p>
+
+  <h3>📌 despues de llegar en la movilidad correspondiente</h3>
+  <p>
+    Ubicate en Hansa.<br>
+    <img src="img/hansa.jpg" style="width:300px; border-radius:20px; margin:10px;"> <br>
+    Después de bajar, camina dos cuadras hacia arriba hasta llegar al restaurante Chanchito a la Cruz.<br>
+    <img src="img/subir2cuadras.jpg" style="width:300px; border-radius:20px; margin:10px;"><br>
+    <img src="img/pasar cuadra.jpg" style="width:300px; border-radius:20px; margin:10px;"><br>
+     <img src="img/micasa.jpg" style="width:300px; border-radius:20px; margin:10px;"><br>
+    Frente al restaurante verás una cancha en construcción.<br>
+
+    La casa está justo enfrente de la cancha.<br>
+   
+    <img src="img/micasita.jpg" style="width:200px; border-radius:20px; margin:10px;"><br>
+    </p>
+
+  <h3>📌 Referencias</h3>
+  <p>
+    Casa de portón negro<br>
+    1er timbre de arriba<br>
+    en fente de la cancha<br>
+    porton con globos
+  </p>
+
+</div>
+
+<script>
+function toggleIndicaciones() {
+  const div = document.getElementById("indicaciones");
+  div.style.display = div.style.display === "none" ? "block" : "none";
+}
+</script>
+
+
+    <button onclick="confirmar()">
+  Confirmar asistencia 🎉
+</button>
+
+<script>
+function confirmar() {
+  const mensaje = encodeURIComponent(
+    "Hola 😊 Confirmo mi asistencia al cumpleaños 🎂"
+  );
+  window.open(
+    "https://wa.me/59178933442?text=" + mensaje,
+    "_blank"
+  );
+}
+</script>
+
+  </div>
+
+  <script>
+    function mostrarMensaje() {
+      alert("¡Gracias por confirmar! 💖");
+    }
+  </script>
+  <script>
+  const audio = document.getElementById('musica');
+  audio.volume = 0; // empieza en silencio
+  audio.play();
+
+  let vol = 0;
+  const fade = setInterval(() => {
+    if(vol < 1){
+      vol += 0.01;
+      audio.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  }, 100); // sube el volumen gradualmente
+</script>
+
+</body>
+</html>
